@@ -6,8 +6,6 @@ function ContainerExercises() {
     return (
         <div id="containerApi">
             <ExerciseCard></ExerciseCard>
-            <ExerciseCard></ExerciseCard>
-            <ExerciseCard></ExerciseCard>
         </div>
     );
 }

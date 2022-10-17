@@ -20,22 +20,22 @@ function Filtersidebar() {
                         <div className="accordion-body">
                             <div className="sortExerciseChoices">
                                 <input type="checkbox" name="absBodyPart" id="absBodyPart"></input>
-                                <label for="">Abs</label>
+                                <label>Abs</label>
                             </div>
 
                             <div className="sortExerciseChoices">
                                 <input type="checkbox" name="fullBodyPart" id="fullBodyPart"></input>
-                                <label for="">Full Body</label>
+                                <label>Full Body</label>
                             </div>
 
                             <div className="sortExerciseChoices">
                                 <input type="checkbox" name="chest" id="chest"></input>
-                                <label for="">Chest</label>
+                                <label>Chest</label>
                             </div>
                             
                             <div className="sortExerciseChoices">
                                 <input type="checkbox" name="legsPart" id="legsPart"></input>
-                                <label for="">Legs - Calves</label>
+                                <label>Legs - Calves</label>
                             </div>
                         </div>
                     </div>
@@ -54,71 +54,71 @@ function Filtersidebar() {
                         <div className="accordion-body">
                             <div className="sortExerciseChoices">
                                 <input type="checkbox" name="noEquip" id="noEquip"></input>
-                                <label for="">No Equipment</label>
+                                <label>No Equipment</label>
                             </div>
 
                             <div className="sortExerciseChoices">
                                 <input type="checkbox" name="medicineBallEquip" id="medicineBallEquip"></input>
-                                <label for="">Medicine Ball</label>
+                                <label>Medicine Ball</label>
                             </div>
 
                             <div className="sortExerciseChoices">
                                 <input type="checkbox" name="dumbbellsEquip" id="dumbbellsEquip"></input>
-                                <label for="">Dumbbells</label>
+                                <label>Dumbbells</label>
                             </div>
                             
                             <div className="sortExerciseChoices">
                                 <input type="checkbox" name="barbellEquip" id="barbellEquip"></input>
-                                <label for="">Barbell</label>
+                                <label>Barbell</label>
                             </div>
 
                             <div className="sortExerciseChoices">
                                 <input type="checkbox" name="trxEquip" id="trxEquip"></input>
-                                <label for="">TRX</label>
+                                <label>TRX</label>
                             </div>
 
                             <div className="sortExerciseChoices">
                                 <input type="checkbox" name="resisBandsEquip" id="resisBandsEquip"></input>
-                                <label for="">Resistence Bands</label>
+                                <label>Resistence Bands</label>
                             </div>
 
                             <div className="sortExerciseChoices">
                                 <input type="checkbox" name="stabilityBallEquip" id="stabilityBallEquip"></input>
-                                <label for="">Stability Ball</label>
+                                <label>Stability Ball</label>
                             </div>
 
                             <div className="sortExerciseChoices">
                                 <input type="checkbox" name="benchEquip" id="benchlEquip"></input>
-                                <label for="">Bench</label>
+                                <label>Bench</label>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                <div className="accordion-item">
+                    <h2 className="accordion-header" id="panelsStayOpen-headingThree">
+                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
                             aria-controls="panelsStayOpen-collapseThree">
                             Hardness Level:
                         </button>
                     </h2>
-                    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                    <div id="panelsStayOpen-collapseThree" className="accordion-collapse collapse"
                         aria-labelledby="panelsStayOpen-headingThree">
-                        <div class="accordion-body">
-                            <div class="sortExerciseChoices">
+                        <div className="accordion-body">
+                            <div className="sortExerciseChoices">
                                 <input type="checkbox" name="enteryLevel" id="enteryLevel"></input>
-                                <label for="">Entery Level</label>
+                                <label>Entery Level</label>
                             </div>
 
-                            <div class="sortExerciseChoices">
+                            <div className="sortExerciseChoices">
                                 <input type="checkbox" name="intermediateLevel" id="intermediateLevel"></input>
-                                <label for="">Intermediate Level</label>
+                                <label>Intermediate Level</label>
                             </div>
 
-                            <div class="sortExerciseChoices">
+                            <div className="sortExerciseChoices">
                                 <input type="checkbox" name="highLevel" id="highLevel"></input>
-                                <label for="">High Level</label>
+                                <label>High Level</label>
                             </div>
                         </div>
                     </div>
