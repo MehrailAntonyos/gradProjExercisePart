@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+
+/* --------------------------------- exercise default styles -----------------------------  */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  outline: none;
+  color: #fff;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --prime: #FF5733;
+  --white_15: hsl(0, 0%, 100%, 0.15);
+  --white: hsl(0, 0%, 100%);
+  --onyx-darker: #1a1a1a;
+}
+
+body {
+  background-color: #222;
+}

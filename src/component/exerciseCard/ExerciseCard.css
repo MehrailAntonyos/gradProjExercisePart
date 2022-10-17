@@ -1,0 +1,184 @@
+.cards {
+    /* width: 500px; */
+    padding: 10px 30px 10px 30px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+    margin: 10px;
+    background: #222;
+}
+
+.image-section {
+    height: 225px;
+    background-color: red;
+}
+
+.links {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding-left: 15%;
+}
+
+.buttonApi {
+    color: var(--prime);
+    padding: 10px;
+    background: transparent;
+    border: 1.5px solid var(--prime);
+    border-radius: 5px;
+    text-transform: capitalize;
+    transition: 0.2s ease;
+    text-align: center;
+    align-items: center;
+    margin-left: -10%;
+}
+
+.buttonApi:hover {
+    color: #fff;
+    background: var(--prime);
+}
+.iconsDiv{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20%;
+    /* justify-content: space-around; */
+}
+.iconsDiv i {
+    height: 27px;
+    width: 27px;
+    border: 1.5px solid #fff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 16px;
+    /* margin-right: 5px; */
+    cursor: pointer;
+    line-height: 22px;
+    margin-top: 15%;
+    margin-bottom: 15%;
+}
+
+.iconsDiv i:hover {
+    border: 1.5px solid var(--prime);
+    background: var(--prime);
+}
+
+.iconsDiv i::after {
+    content: attr(data-hover);
+    color: var(--prime);
+    visibility: hidden;
+    opacity: 0;
+    width: max-content;
+    background-color: var(--white);
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 5px;
+    transition: opacity 1s ease-in-out;
+    position: relative;
+    left: 0;
+    width: 100px;
+    font-size: 15px;
+}
+
+.iconsDiv i::before {
+    margin-left: 15%;
+}
+
+.iconsDiv i:hover::after {
+    visibility: visible;
+    width: 100px;
+    opacity: 1;
+    position: relative;
+    left: 20%;
+    top: 60%;
+}
+
+#containerApiSortedABS {
+    width: 85%;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 25px;
+
+}
+
+.cards2 {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.5);
+}
+
+.contentTitle {
+    color: var(--prime);
+    font-size: 1.2rem;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.content2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-section2 {
+    height: 225px;
+    background-color: red;
+}
+
+.links2 {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding-left: 15%;
+}
+
+.links2 .buttonApi {
+    padding: 10px;
+    width: 50%;
+    background-color: var(--blue-green-color-wheel);
+    border: none;
+    color: white;
+    border-radius: 40px;
+    margin: 5%;
+    text-align: center;
+}
+
+.links2 .fav {
+    margin-top: 5%;
+}
+
+.cards3 {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.5);
+}
+
+.content3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-section3 {
+    height: 225px;
+    background-color: red;
+}
+
+.links3 {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding-left: 15%;
+}
+
+.links3 .buttonApi {
+    padding: 10px;
+    width: 50%;
+    background-color: var(--blue-green-color-wheel);
+    border: none;
+    color: white;
+    border-radius: 40px;
+    margin: 5%;
+    text-align: center;
+}
+
+.links3 i {
+    margin-top: 5%;
+}

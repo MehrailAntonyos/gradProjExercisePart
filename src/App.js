@@ -1,24 +1,20 @@
 import logo from './logo.svg';
+// put bootstrab links before to not override css files
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/bootstrap/dist/js/bootstrap';
 import './App.css';
+import Navbar from './component/navbar/Navbar';
+import Header from './component/header/Header';
+import Bigcontainer from './component/bigContainer/Bigcontainer'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Navbar></Navbar>
+    <Header></Header>
+    <Bigcontainer></Bigcontainer>
+    </>
   );
 }
 
