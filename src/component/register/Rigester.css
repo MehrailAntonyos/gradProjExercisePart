@@ -1,0 +1,201 @@
+
+:root {
+    /* ------------------------------------ colors -------------------------------------- */
+    --primary-c-darkBrown: rgb(104, 53, 7);
+    --secondary-c-lightBrown: rgb(216, 128, 31);
+    --decoration-c-lightYellow: rgb(251, 198, 62);
+    --basic-c-white: rgb(255, 255, 255);
+    --basic-c-black: rgb(0, 0, 0);
+    --dark-mode-c-gray: rgb(74, 93, 84);
+    /* ---------------------------------- card slider ------------------------------------*/
+    --card-width: 200px;
+    --card-height: 300px;
+    --card-transition-duration: 800ms;
+    --card-transition-easing: ease;
+}
+
+.signUpSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* min-height: 80vh; */
+    height: 95vh;
+    /* background: var(--secondary-c-lightBrown); */
+    /* background-image: url(./images/group-friends-have-holiday-together-meeting-consult-about-plan.jpg); */
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 0.5s;
+    /* margin-top: -39%; */
+    width: 20%;
+    margin-left: 5%;
+    border-radius: 10px;
+}
+
+.signUpSection .container {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    margin: 20px;
+    /* background: var(--secondary-c-lightBrown); */
+    border-radius: 10px;
+}
+
+.blueBg {
+    position: absolute;
+    top: 40px;
+    left: 100%;
+    width: 180%;
+    height: 420px;
+    background: rgba(2, 245, 233, 0.5);
+    /* box-shadow: 0.5px 45px rgba(0, 0, 0, 0.15); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.blueBg .box {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.blueBg .box h2 {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.blueBg .box button {
+    cursor: pointer;
+    padding: 10px 20px;
+    background: #fff;
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+}
+
+.formBox {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 180%;
+    height: 100%;
+    background: var(--secondary-c-lightBrown);
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.5);
+    transition: 0.5s ease-in-out;
+    z-index: 1000;
+    border-radius: 10px;
+}
+
+.formBox.active {
+    position: relative;
+    top: 0;
+    left: 150%;
+    width: 180%;
+    height: 100%;
+    background: var(--secondary-c-lightBrown);
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.5);
+    transition: 0.5s ease-in-out;
+    z-index: 1000;
+    border-radius: 10px;
+}
+.form h3{
+    font-weight: 600;
+    text-align: center;
+    margin-top: 2%;
+}
+.form .leftContact {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: left;
+    /* margin: 5%; */
+}
+
+.form .leftContact .formLevel {
+    display: flex;
+}
+
+.form .leftContact .inputBox {
+    padding: 5%;
+}
+
+.form .leftContact .inputBox input {
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid var(--primary-c-darkBrown);
+    border-radius: 10px;
+    background: rgba(252, 251, 250, 0.2);
+    color: var(--basic-c-black);
+    font-weight: 600;
+    margin-top: 5%;
+    /* text-align: left; */
+    padding: 2% 10% 2% 10%;
+}
+
+.form .leftContact .inputBox select {
+    /* margin-top: 10%; */
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid var(--primary-c-darkBrown);
+    border-radius: 10px;
+    background: rgba(252, 251, 250, 0.2);
+    color: var(--basic-c-black);
+    font-weight: 600;
+    margin-top: 5%;
+    /* text-align: left; */
+    /* padding: 2% 10% 2% 10%;
+     */
+    padding: 4%;
+}
+
+.optionFormStyle {
+    /* margin-top: 10%; */
+    width: 100%;
+    box-sizing: border-box;
+    /* border: none;
+    border-bottom: 2px solid var(--primary-c-darkBrown);
+    border-radius: 10px; */
+    background: var(--primary-c-darkBrown);
+    background: rgba(252, 251, 250, 0.2);
+    color: var(--basic-c-black);
+    font-weight: 600;
+    margin-top: 5%;
+    border-radius: 10px;
+    padding: 4%;
+}
+
+.form .leftContact .inputBox span {
+    font-weight: 800;
+    text-align: left;
+}
+
+.form .bottomContact .inputBox input {
+    border-radius: 10px;
+    padding: 2% 5% 2% 5%;
+    background: var(--primary-c-darkBrown);
+    color: var(--basic-c-white);
+    border: none;
+    box-shadow: 0px 20px 25px 10px rgb(253, 252, 252);
+    margin: 5% 0 10% 0;
+    font-weight: 600;
+}
+
+.form .bottomContact input:hover {
+    font-size: 20px;
+}

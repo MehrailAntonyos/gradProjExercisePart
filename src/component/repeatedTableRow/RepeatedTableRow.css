@@ -1,0 +1,24 @@
+select{
+    color: #fff;
+    background: var(--prime);
+    padding: 10px;
+    border: 1.5px solid var(--prime);
+    border-radius: 5px;
+    text-transform: capitalize;
+    transition: 0.2s ease;
+    text-align: center;
+    align-items: center;
+    margin-left: -10%;
+}
+select option{
+    color: #fff;
+    background: #000;
+    text-align: center;
+}
+
+/* style in hover not responding */
+option:hover{
+    color: var(--prime);
+    background: #000;
+    text-align: center;
+}
