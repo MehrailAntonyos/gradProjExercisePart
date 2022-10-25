@@ -14,10 +14,12 @@ function RepeatedToDoTask({ data }) {
 
         <tr>
             <th scope="row">1</th>
+            <td>userEmail</td>
             <td><img className='imgstatic' src={data.imgStatic} style={{ width: '100%', height: '100%' }} alt='exPhoto'></img></td>
             <td>{data.exerciseName}</td>
-            <td>{data.equipments}</td>
-            <td>{data.paragraphExplainSteps[1]}</td>
+            <td>{data.exTools+","}</td>
+            <td>{data.exAdditionNotes+","}</td>
+            {/* <td>{data.paragraphExplainSteps[1]}</td> */}
         </tr>
 
     )

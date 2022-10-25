@@ -1,20 +1,27 @@
 
 import './ExerciseCard.css';
 import React, { useState } from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { addFav } from '../../Redux/Actions/favAction';
-import { assignExercise } from '../../Redux/Actions/assignExAction';
+import { deleteExercise } from '../../Redux/Actions/deleteAction';
 
 function ExerciseCard({ data }) {
 
-    console.log(data);
+    // console.log(data);
 
     // ------------------------ to see more button "pop up message modal" ------------------
+    // pop up for see more button
     const [isShow, invokeModal] = React.useState(false)
+    const [isEditShow, invokeEditModal] = React.useState(false)
     const initModal = (item) => {
         console.log(item);
         invokeModal(!isShow)
+    }
+    // pop up for edit form from icon
+    const initEditModal = (item) => {
+        console.log(item);
+        invokeEditModal(!isEditShow)
     }
 
     // ------------------------------- to add to favourite page --------------------------
@@ -25,11 +32,17 @@ function ExerciseCard({ data }) {
         dispatch(addFav(data));
     }
 
-    // ---------------------------- to assign exercise to trainee --------------------------
-    function assign(data) {
-        console.log("Assign exercise...");
-        dispatch(assignExercise(data));
+    // // ---------------------------- to assign exercise to trainee --------------------------
+    // function assign(data) {
+    //     console.log("Assign exercise...");
+    //     dispatch(assignExercise(data));
 
+    // }
+
+    // ----------------------------------- to delete exercise ------------------------------
+    function deleteEx(data) {
+        console.log("Exercise Deleting");
+        dispatch(deleteExercise(data));
     }
 
 
@@ -43,25 +56,68 @@ function ExerciseCard({ data }) {
                 <button className='buttonApi my-5' onClick={() => { initModal(data) }}>See More</button>
                 <div className='iconsDiv'>
                     <i className="uil uil-plus" aria-hidden="true" onClick={() => { add(data) }}></i>
-                    <i className="uil uil-trash-alt" aria-hidden="true" onClick={() => { assign(data) }}></i>
+                    <i className="uil uil-pen" onClick={() => { initEditModal(data) }}></i>
+                    <i className="uil uil-trash-alt" aria-hidden="true" onClick={() => { deleteEx(data) }}></i>
                 </div>
 
+                {/* modal for see mode button */}
                 <Modal show={isShow}>
-                    <Modal.Header closeButton onClick={initModal}>
-                        <Modal.Title style={{ color: "black" }}>React Modal Popover Example</Modal.Title>
+                    <Modal.Header closeButton onClick={initModal} style={{ background: "var(--onyx-darker)" }}>
+                        <Modal.Title  style={{ color: "--basic-c-white" }}>Exercise Details</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body style={{ color: "red" }}>
+                    <Modal.Body style={{ background: "var(--onyx-darker)" , textAlign:"center"}}>
                         {console.log(data)}
-                        {data.exerciseName}
+                        <h3 style={{ color: "var(--prime)"}}>{data.exerciseName}</h3>
+                        <image src={data.imgStatic} style={{width: "80%"}} alt="exPhoto"></image>
+                        <p>{data.exBodyPart}</p>
+                        <p>{data.exTools}</p>
+                        <p>{data.exAdditionNotes}</p>
                     </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="danger" onClick={initModal}>
-                            Close
-                        </Button>
-                        <Button variant="dark" onClick={initModal}>
-                            Store
-                        </Button>
-                    </Modal.Footer>
+                </Modal>
+
+                {/* modal for edit exercise form  */}
+                <Modal show={isEditShow}>
+                    <Modal.Header closeButton onClick={initEditModal} style={{ background: "var(--onyx-darker)" }}>
+                        <Modal.Title  style={{ color: "--basic-c-white" }}>Edit Exercise</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body style={{ background: "var(--onyx-darker)"}}>
+                        {/* form */}
+                        <Form >
+                                <Form.Group className="mb-2" >
+                                    <Form.Label style={{ color: "var(--prime)" }}>Exercise Name</Form.Label>
+                                    <Form.Control type="text" name='exerciseName' />
+                                </Form.Group>
+
+                                <Form.Group className="mb-2" >
+                                    <Form.Label style={{ color: "var(--prime)" }}>Exercise Body Part</Form.Label>
+                                    <Form.Control type="text" name='exBodyPart' />
+                                </Form.Group>
+
+                                <Form.Group className="mb-2" >
+                                    <Form.Label style={{ color: "var(--prime)" }}>Exercise Tools</Form.Label>
+                                    <Form.Control type="text" name='exTools' />
+                                </Form.Group>
+
+                                <Form.Group controlId="formFile" className="mb-3">
+                                    <Form.Label style={{ color: "var(--prime)" }}>Exercise Static Image</Form.Label>
+                                    <Form.Control type="file" name='exStaticImage'/>
+                                </Form.Group>
+
+                                <Form.Group controlId="formFile" className="mb-3">
+                                    <Form.Label style={{ color: "var(--prime)" }}>Exercise Gif Image</Form.Label>
+                                    <Form.Control type="file" name='exGifImage' />
+                                </Form.Group>
+
+                                <Form.Group className="mb-2" >
+                                    <Form.Label style={{ color: "var(--prime)" }}>Exercise Notes</Form.Label>
+                                    <Form.Control type="text" name='exAdditionNotes' />
+                                </Form.Group>
+
+                                <Button to="/AllExercise"  className='buttonApi' style={{ marginLeft: "10px" }} type="submit">
+                                    Add
+                                </Button>
+                            </Form>
+                    </Modal.Body>
                 </Modal>
             </div>
         </div>

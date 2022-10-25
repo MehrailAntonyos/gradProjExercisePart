@@ -19,17 +19,6 @@ function RepeatedTableRow({ data }) {
             <td>{data.brand}</td>
             <td>{data.stock}</td>
             <td><button className='buttonApi'>Show History</button></td>
-            <td>
-                <select name='exerciseDays'>
-                    <option value="Day1">Day1</option>
-                    <option value="Day2">Day2</option>
-                    <option value="Day3">Day3</option>
-                    <option value="Day4">Day4</option>
-                    <option value="Day5">Day5</option>
-                    <option value="Day6">Day6</option>
-                    <option value="Day7">Day7</option>
-                </select>
-            </td>
             <td><NavLink to="/AllExercise" className="buttonApi" aria-current="page" href="#">Assign Exercise</NavLink></td>
         </tr>
 

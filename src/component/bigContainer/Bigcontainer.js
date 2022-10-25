@@ -17,7 +17,7 @@ function Bigcontainer() {
 
     return (
         <>
-            <nav style={{ marginLeft: "25%", marginTop: "5%" }}>
+            <nav style={{ marginLeft: "30%", marginTop: "5%" }}>
                 <ul>
                     <li>
                         <NavLink to="/AllExercise" className="nav-link active" aria-current="page" href="#">All Exercise</NavLink>
@@ -27,46 +27,59 @@ function Bigcontainer() {
                     </li>
 
                     <Modal show={isShow} scrollable={true}>
-                        <Modal.Header closeButton onClick={initModal} style={{background: "var(--onyx-darker)"}}>
+                        <Modal.Header closeButton onClick={initModal} style={{ background: "var(--onyx-darker)" }}>
                             <Modal.Title style={{ color: "--basic-c-white" }}>Add New Exercise</Modal.Title>
                         </Modal.Header>
-                        <Modal.Body style={{background: "var(--onyx-darker)"}}>
+                        <Modal.Body style={{ background: "var(--onyx-darker)" }}>
                             {/* form */}
-                            <Form  >
-                                <Form.Group className="mb-2" controlId="formBasicEmail">
-                                    <Form.Label style={{ color: "var(--prime)"}}>Email address</Form.Label>
-                                    <Form.Control type="text" placeholder="Enter email" />
+                            <Form action='/AllExercise' method='post'>
+                                <Form.Group className="mb-2" >
+                                    <Form.Label style={{ color: "var(--prime)" }}>Exercise Name</Form.Label>
+                                    <Form.Control type="text" name='exerciseName' />
                                 </Form.Group>
 
-                                <Form.Group className="mb-2" controlId="formBasicPassword">
-                                    <Form.Label>Password</Form.Label>
-                                    <Form.Control type="text" placeholder="Password" />
+                                <Form.Group className="mb-2" >
+                                    <Form.Label style={{ color: "var(--prime)" }}>Exercise Body Part</Form.Label>
+                                    <Form.Control type="text" name='exBodyPart' />
                                 </Form.Group>
 
-                                <Button variant="primary" type="submit">
-                                    Submit
+                                <Form.Group className="mb-2" >
+                                    <Form.Label style={{ color: "var(--prime)" }}>Exercise Tools</Form.Label>
+                                    <Form.Control type="text" name='exTools' />
+                                </Form.Group>
+
+                                <Form.Group controlId="formFile" className="mb-3">
+                                    <Form.Label style={{ color: "var(--prime)" }}>Exercise Static Image</Form.Label>
+                                    <Form.Control type="file" name='exStaticImage'/>
+                                </Form.Group>
+
+                                <Form.Group controlId="formFile" className="mb-3">
+                                    <Form.Label style={{ color: "var(--prime)" }}>Exercise Gif Image</Form.Label>
+                                    <Form.Control type="file" name='exGifImage' />
+                                </Form.Group>
+
+                                <Form.Group className="mb-2" >
+                                    <Form.Label style={{ color: "var(--prime)" }}>Exercise Notes</Form.Label>
+                                    <Form.Control type="text" name='exAdditionNotes' />
+                                </Form.Group>
+
+                                <Button to="/AllExercise"  className='buttonApi' style={{ marginLeft: "10px" }} type="submit">
+                                    Add
                                 </Button>
                             </Form>
+
                         </Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="danger" onClick={initModal}>
-                                Close
-                            </Button>
-                            <Button variant="dark" onClick={initModal}>
-                                Store
-                            </Button>
-                        </Modal.Footer>
                     </Modal>
 
                     <li>
-                        <NavLink to="/FavExercise" className="nav-link active" aria-current="page" href="#">Fav Exercise</NavLink>
+                        <NavLink to="/FavExercise" className="nav-link active" aria-current="page" href="#">Assigned Exercise</NavLink>
                     </li>
                     <li>
                         <NavLink to="/AllTrainee" className="nav-link active" aria-current="page" href="#">All Trainees</NavLink>
                     </li>
-                    <li>
+                    {/* <li>
                         <NavLink to="/ToDoListExercise" className="nav-link active" aria-current="page" href="#">Exercise Assigned</NavLink>
-                    </li>
+                    </li> */}
                 </ul>
             </nav>
         </>

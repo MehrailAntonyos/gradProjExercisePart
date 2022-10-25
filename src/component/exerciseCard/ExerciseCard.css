@@ -34,6 +34,7 @@
 .buttonApi:hover {
     color: #fff;
     background: var(--prime);
+    border: none;
 }
 .iconsDiv{
     display: flex;
