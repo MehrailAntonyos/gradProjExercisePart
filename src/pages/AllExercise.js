@@ -42,11 +42,11 @@ function AllExercise() {
 
   // update design "solve issue"
   return (
-    <div className='row mt-3' style={{ display: 'flex', width: '100%', justifyContent: 'space-between', marginLeft: '2%' }}>
+    <div className='row mt-3' style={{ display: 'flex', width: '95%', justifyContent: 'space-around', marginLeft: '2%' }}>
       <Filtersidebar></Filtersidebar>
-      <div className='mainExContent' style={{ display: 'flex', width: '80%', justifyContent: 'space-around' }}>
+      <div id='containerApi' >
         {
-          exercise.map((item) => <div className='col-3  mt-5'><ExerciseCard data={item} /></div>)
+          exercise.map((item) => <div className=''><ExerciseCard data={item} /></div>)
         }
       </div>
     </div>

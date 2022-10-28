@@ -36,12 +36,14 @@
     background: var(--prime);
     border: none;
 }
-.iconsDiv{
+
+.iconsDiv {
     display: flex;
     flex-direction: column;
     margin-top: 20%;
     /* justify-content: space-around; */
 }
+
 .iconsDiv i {
     height: 27px;
     width: 27px;
@@ -182,4 +184,12 @@
 
 .links3 i {
     margin-top: 5%;
+}
+
+.mainExContent {
+    width: 75%;
+    /* margin: 50px auto; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* grid-gap: 20px; */
 }

@@ -7,65 +7,67 @@ const Exercise = require('../models/Exercise');
 
 
 //---------------------------------------------------- multer ------------------------------------------//
-// const multer = require("multer");
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, "public");
-//   },
+const multer = require("multer");
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "public");
+  },
 
-//   filename: (req, file, cb) => {
-//     let name = Date.now() + file.originalname;
-//     cb(null, name);
-//   },
-// });
-// const filter = (req, file, cb) => {
-//   if (
-//     file.mimetype === "image/jpg" ||
-//     file.mimetype === "image/jpeg" ||
-//     file.mimetype === "image/png" ||
-//     file.mimetype === "image/gif"
-//   ) {
-//     cb(null, true);
-//   } else {
-//     cb(null, false);
-//   }
-// };
-// const upload = multer({
-//   storage: storage,
-//   fileFilter: filter,
-// });
+  filename: (req, file, cb) => {
+    let name = Date.now() + file.originalname;
+    cb(null, name);
+  },
+});
+const filter = (req, file, cb) => {
+  if (
+    file.mimetype === "image/jpg" ||
+    file.mimetype === "image/jpeg" ||
+    file.mimetype === "image/png" ||
+    file.mimetype === "image/gif"
+  ) {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+const upload = multer({
+  storage: storage,
+  fileFilter: filter,
+});
 
 // --------------------------------------------------------- add new exercise --------------------------------------------------------
-// router.post("/create", upload.array("image", 2), function (req, res) {
-//     console.log(req.body);
-//     let pro = [];
-//     for (i of req.files) {
-//       pro.push(i.path);
-//     }
-//     Exercise.create(
-//       { ...req.body, exStaticImage: pro[0], exGifImage: pro[1] },
-//       function (err) {
-//         if (err) {
-//           res.status(402).send("not valid");
-//           console.log(err);
-//         } else {
-//           res.send("Exercise Added Successfully");
-//         }
-//       }
-//     );
-//   });
-router.post('/create', function (req, res) {
+router.post("/create", upload.array("image", 2), function (req, res) {
     console.log(req.body);
-    Exercise.create(req.body, function (err) {
+    let pro = [];
+    for (i of req.files) {
+      pro.push(i.path);
+    }
+    Exercise.create(
+      { ...req.body, exStaticImage: pro[0], exGifImage: pro[1] },
+      function (err) {
         if (err) {
-            res.status(402).send("not valid data");
-            console.log(err);
+          res.status(402).send("not valid");
+          console.log(err);
+        } else {
+          res.send("Exercise Added Successfully");
         }
-        else {
-            res.send("Exercise Added Successfully");
-        }
-    });
-})
+      }
+    );
+  });
+
+// router.post('/create', function (req, res) {
+//     console.log(req.body);
+//     Exercise.create(req.body, function (err) {
+//         if (err) {
+//             console.log(err);
+//             res.status(402).send("not valid data");
+            
+//         }
+//         else {
+//             res.send("Exercise Added Successfully");
+//         }
+//     });
+// })
 
 // ----------------------------------- will be handled with fetch in js ----------------------------------------------------------
 //------------------------------------------- view all exercises with details ----------------------------------------------------
@@ -82,6 +84,7 @@ router.patch('/editEx', function (req, res) {
     // using findOneAndUpdate instead of update to solve updating unset variables
     Exercise.findOneAndUpdate({ exerciseName: req.body.exerciseName }, {exBodyPart: req.body.exBodyPart, exAdditionNotes: req.body.exAdditionNotes}, function (err, data) {
         if (err) {
+          console.log(err);
             res.send(err);
         } else {
             res.send(data);
