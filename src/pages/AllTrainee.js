@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import RepeatedTableRow from '../component/repeatedTableRow/RepeatedTableRow'
-import { axiosInstance2 } from '../config/axios'
+import { axiosInstance } from '../config/axios'
 import { Route, Routes, useLocation } from 'react-router-dom';
 
 function AllTrainee() {
@@ -10,9 +10,10 @@ function AllTrainee() {
     useEffect(() => {
 
         // rest of api link
-        axiosInstance2.get('/products').then((res) => {
+        axiosInstance.get('/users//').then((res) => {
+            console.log("get all trainee from db");
             console.log(res);
-            setTrainee(res.data.products)
+            setTrainee(res.data)
         })
     }, [])
 

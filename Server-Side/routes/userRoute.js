@@ -106,4 +106,19 @@ router.patch('/add_exersice', function (req, res) {
 });
 
 
+
+router.get("/", function (req, res)
+{
+    User.find({ "role": "client" }, function (err, data)
+    {
+        if (err)
+        {
+            console.log(err);
+            res.send({ message: 'Error ! Please check your query and try again.' });
+        } else
+        {
+            res.send(data);
+        }
+    });
+});
 module.exports = router;
