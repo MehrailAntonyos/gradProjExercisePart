@@ -93,13 +93,27 @@ router.delete("/delete", function (req, res) {
 
 
 
-router.patch('/add_exersice', function (req, res) {
+// ------------- add exercise with date "handling in front" to specific user ---------------
+router.patch('/add_Exersice', function (req, res) {
+
+    console.log('ihhuhuhji')
     User.findOneAndUpdate({ email: req.body.email }, {
-        exersiceHistory: [{ exBodyPart: req.body.exBodyPart, exAdditionNotes: req.body.exAdditionNotes }]
+        $push: {
+            exersiceHistory:
+            {
+                exerciseName: req.body.exerciseName, exBodyPart: req.body.exBodyPart,
+                exTools: req.body.exTools, exStaticImage: req.body.exStaticImage,
+                exGifImage: req.body.exGifImage, exAdditionNotes: req.body.exAdditionNotes,
+                date: new Date().toISOString(),
+            }
+        }
+
     }, function (err, data) {
         if (err) {
+            console.log(err);
             res.send(err);
         } else {
+            console.log(data);
             res.send(data);
         }
     });

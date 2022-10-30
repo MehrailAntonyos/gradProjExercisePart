@@ -5,11 +5,20 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import Filtersidebar from '../component/sideBarFilter/Filtersidebar';
 import axios from 'axios';
 
-function AllExercise() {
-  console.log(useLocation());
+function AllExercise(props) {
+  var emptyStringRoute ="";
+  console.log("sucesssssssssssssss");
+  console.log(props);
+  var location = useLocation().state?.clientEmail||"";
+  var emptyLocation = "";
   const [exercise, setExercise] = useState([])
+
   useEffect(() => {
 
+    // if(useLocation().state.clientEmail == null)
+    // {
+    //   console.log("navigate correct");
+    // }
     // to get all exercises
     axiosInstance.get('/exercises/view').then((res) => {
       console.log("get Exercise data from database");
@@ -26,7 +35,7 @@ function AllExercise() {
     })
     // to delete specific exercise 
     // ???????????????????????? axiosInstance.delete() not responding ??????????????????
-    axiosInstance.get('/exercises/delete').then((res) => {
+    axiosInstance.delete('/exercises/delete').then((res) => {
       console.log("exercise data deleting from database");
       console.log(res);
       setExercise(res.data)
@@ -38,6 +47,13 @@ function AllExercise() {
       console.log(res);
       setExercise(res.data)
     })
+
+    // assign exercise to trainee with email
+    axiosInstance.get('/users/add_exersice').then((res) => {
+      console.log("add exercise to trainee with email");
+      console.log(res);
+      setExercise(res.data)
+  })
   }, [])
 
   // update design "solve issue"
@@ -46,7 +62,7 @@ function AllExercise() {
       <Filtersidebar></Filtersidebar>
       <div id='containerApi' >
         {
-          exercise.map((item) => <div className=''><ExerciseCard data={item} /></div>)
+          exercise.map((item) => <div className=''><ExerciseCard data={item} user={location} /></div>)
         }
       </div>
     </div>

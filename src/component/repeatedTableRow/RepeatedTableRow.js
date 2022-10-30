@@ -4,11 +4,25 @@ import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { addFav } from '../../Redux/Actions/favAction';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink,useNavigate } from 'react-router-dom';
+
+// import { Link, NavLink,  } from 'react-router-dom';
 
 function RepeatedTableRow({ data }) {
     var exHistoryCounter=0;
-    console.log(data);
+    // console.log(data);
+
+    const NavigateTo = useNavigate();
+
+    function ExerciseTraineeNav(userEmailToEx) {
+        console.log("Exercise Trainee Nav");
+        console.log(userEmailToEx);
+        // NavigateTo('/AllExercise',{userEmailToEx});
+        NavigateTo('/AllExercise', {state:
+            {clientEmail: userEmailToEx || ''}
+            
+        })
+    }
 
     const [isShow, invokeModal] = React.useState(false)
     const initModal = (item) => {
@@ -25,12 +39,13 @@ function RepeatedTableRow({ data }) {
             <td>{data.role}</td>
             <td>{data.subscription}</td>
             <td><button className='buttonApi' onClick={() => { initModal(data.exersiceHistory) }}>Show History</button></td>
-            <td><NavLink to="/AllExercise" className="buttonApi" aria-current="page" href="#">Assign Exercise</NavLink></td>
+            {/* {NavigateTo('/AllExercise');} */}
+            <td><button  className="buttonApi" aria-current="page"  onClick={()=>{ExerciseTraineeNav(data.email)}}>Assign Exercise</button></td>
 
             {/* modal to show history for every user client */}
             <Modal show={isShow} scrollable={true}>
                 <Modal.Header closeButton onClick={initModal} style={{ background: "var(--onyx-darker)" }}>
-                    <Modal.Title style={{ color: "--basic-c-white" }}>Add New Exercise</Modal.Title>
+                    <Modal.Title style={{ color: "--basic-c-#ffffff" }}>Add New Exercise</Modal.Title>
                 </Modal.Header>
                 <Modal.Body style={{ background: "var(--onyx-darker)" }}>
                     {/* {if(data.exersiceHistory.length > 0)} */}

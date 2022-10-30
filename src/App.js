@@ -12,6 +12,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import FavExercise from './pages/FavExercise';
 import { useState } from 'react';
 import { favContext } from './config/favContext';
+import { deleteContext } from './config/deleteContext'
 import AllTrainee from './pages/AllTrainee';
 import ToDoListExercise from './pages/ToDoListExercise';
 import { assignExContext } from './config/assignExContext';
@@ -19,6 +20,7 @@ import { assignExContext } from './config/assignExContext';
 function App() {
   const [fav, setFav] = useState([]);
   const [assignEx, setAssignEx] = useState([]);
+  const [del, setDelete] = useState([]);
 
   return (
     <>
@@ -27,15 +29,17 @@ function App() {
       <Bigcontainer></Bigcontainer>
       {/* <Register></Register> */}
       <assignExContext.Provider value={{ fav, setFav }}>
-        <favContext.Provider value={{ assignEx, setAssignEx }}>
-          <Routes>
-            <Route path='/AllExercise' element={<AllExercise />} />
-            <Route path='/FavExercise' element={<FavExercise />} />
-            <Route path='/AllTrainee' element={<AllTrainee />} />
-            <Route path='/ToDoListExercise' element={<ToDoListExercise />} />
+        <deleteContext.Provider value={{ del, setDelete }}>
+          <favContext.Provider value={{ assignEx, setAssignEx }}>
+            <Routes>
+              <Route path='/AllExercise' element={<AllExercise />} />
+              <Route path='/FavExercise' element={<FavExercise />} />
+              <Route path='/AllTrainee' element={<AllTrainee />} />
+              <Route path='/ToDoListExercise' element={<ToDoListExercise />} />
 
-          </Routes>
-        </favContext.Provider>
+            </Routes>
+          </favContext.Provider>
+        </deleteContext.Provider>
       </assignExContext.Provider>
     </>
   );

@@ -10,7 +10,9 @@ import * as yup from 'yup';
 import axios from 'axios';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 
-function ExerciseCard({ data }) {
+function ExerciseCard({ data , user}) {
+    // console.log("yessssssssssssss");
+    console.log("user=>",user);
     const NavigateTo = useNavigate();
     // console.log(data);
 
@@ -32,8 +34,17 @@ function ExerciseCard({ data }) {
     const dispatch = useDispatch();
 
     function add(data) {
+
+        console.log(user)
         console.log("add data...");
+        console.log(data);
+        data.email=user;
         dispatch(addFav(data));
+
+        axios.patch('http://localhost:8000/api/v1/users//add_exersice',data).then((res)=>
+        {
+            console.log(res);
+        })
     }
 
     // // ---------------------------- to assign exercise to trainee --------------------------
@@ -47,6 +58,12 @@ function ExerciseCard({ data }) {
     function deleteEx(data) {
         console.log("Exercise Deleting");
         dispatch(deleteExercise(data));
+
+        // axiosInstance.get('/exercises/delete').then((res) => {
+        //     console.log("exercise data deleting from database");
+        //     console.log(res);
+        //     setExercise(res.data)
+        //   })
     }
 
     // ------------------------------------ to edit exercise --------------------------------
