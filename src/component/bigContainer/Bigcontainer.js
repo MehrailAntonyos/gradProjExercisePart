@@ -8,6 +8,10 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import axios from 'axios';
+import FormData from 'form-data';
+// import '../../../node_modules/source-map-loader/dist/cjs
+// import './../../../node_modules/source-map-loader/dist/cjs'
+// /media/My_Data/iti/front-end & cross platform/react js/untitled folder/day1-lab/node_modules/axios/node_modules/form-data/lib/browser.js
 
 function Bigcontainer() {
 
@@ -35,11 +39,23 @@ function Bigcontainer() {
 
         },
         onSubmit: values => {
-            alert(JSON.stringify(values));
+            // alert(JSON.stringify(values));
+
+            const form = new FormData();
+            form.append('exerciseName', values.exerciseName);
+            form.append('exBodyPart', values.exBodyPart);
+            form.append('exTools', values.exTools);
+            // form.append('exStaticImage', .values.exerciseName);
+            
+            form.append('exAdditionNotes', values.exAdditionNotes);
+            for (let i = 0; i < values.exGifImage.length; i++) {
+                form.append('exGifImage', values.exGifImage[i]);
+            }
+            console.log(form)
             // alert(`You are registered! email: ${values.email}. password: ${values.password}`);
             axios.post('http://localhost:8000/api/v1/exercises/create', values).then(function (response) {
                 console.log(response);
-                NavigateTo('/AllExercise');
+                // NavigateTo('/AllExercise');
             })
         },
         validationSchema: schema
@@ -81,11 +97,11 @@ function Bigcontainer() {
                                         value={formik.values.exTools} />
                                 </Form.Group>
 
-                                <Form.Group controlId="formFile" className="mb-3">
+                                {/* <Form.Group controlId="formFile" className="mb-3">
                                     <Form.Label style={{ color: "var(--prime)" }}>Exercise Static Image</Form.Label>
                                     <Form.Control type="file" name='exStaticImage'onChange={formik.handleChange}
                                         value={formik.values.exStaticImage} />
-                                </Form.Group>
+                                </Form.Group> */}
 
                                 <Form.Group controlId="formFile" className="mb-3">
                                     <Form.Label style={{ color: "var(--prime)" }}>Exercise Gif Image</Form.Label>

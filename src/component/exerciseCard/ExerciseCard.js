@@ -57,13 +57,16 @@ function ExerciseCard({ data , user}) {
     // ----------------------------------- to delete exercise ------------------------------
     function deleteEx(data) {
         console.log("Exercise Deleting");
+        console.log(data.exerciseName);
         dispatch(deleteExercise(data));
 
-        // axiosInstance.get('/exercises/delete').then((res) => {
-        //     console.log("exercise data deleting from database");
-        //     console.log(res);
-        //     setExercise(res.data)
-        //   })
+        var objExerciseName = {exerciseName: data.exerciseName};
+        
+        axios.delete('http://localhost:8000/api/v1/exercises/delete/'+data.exerciseName).then((res)=>
+        {
+            console.log("delete om el exercise");
+            console.log(res);
+        })
     }
 
     // ------------------------------------ to edit exercise --------------------------------

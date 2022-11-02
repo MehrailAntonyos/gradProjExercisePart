@@ -10,14 +10,14 @@ const exerciseSchema = new mongoose.Schema({
         { type: String, required: true },
     exBodyPart:
         { type: String, required: true },
-    // exTools:
-    //     [{ type: String, optional: true }],
+    exTools:
+        [{ type: String, optional: true }],
     // exStaticImage:
     //     { type: String, },
-    // exGifImage:
-    //     { type: String,},
-    // exAdditionNotes:
-    //     { type: String, },
+    exGifImage:
+        { type: String,},
+    exAdditionNotes:
+        { type: String, },
 
     // exStep:
     //     [{ type: String, required: true }],
