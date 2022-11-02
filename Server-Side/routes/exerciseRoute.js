@@ -6,53 +6,83 @@ const router = express.Router()
 const Exercise = require('../models/Exercise');
 
 
+const  mongoose  = require("mongoose");
+// const express = require('express');
+// const exercises =require('../models/Exercise')
+// const router = express.Router();
+// const multer = require("multer");
+
 //---------------------------------------------------- multer ------------------------------------------//
+// const path = require("path");
 const multer = require("multer");
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "public");
+  destination: function(req, file, cb) {
+    cb(null, './public/exercises');
   },
-
-  filename: (req, file, cb) => {
-    let name = Date.now() + file.originalname;
-    cb(null, name);
-  },
+  filename: function(req, file, cb) {
+    cb(null, file.originalname);
+  }
 });
-const filter = (req, file, cb) => {
-  if (
-    file.mimetype === "image/jpg" ||
-    file.mimetype === "image/jpeg" ||
-    file.mimetype === "image/png" ||
-    file.mimetype === "image/gif"
-  ) {
+const fileFilter = (req, file, cb) => {
+  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png'|| file.mimetype === 'image/jpg')
+  {
     cb(null, true);
-  } else {
+  } else
+  {
     cb(null, false);
   }
-};
+}
+
 const upload = multer({
-  storage: storage,
-  fileFilter: filter,
+  storage: storage, 
+  limits:{
+  fileSize: 1024*1024*5
+   },
+fileFilter: fileFilter
 });
 
+
 // --------------------------------------------------------- add new exercise --------------------------------------------------------
-router.post("/create", upload.array("image", 2), function (req, res) {
-  console.log(req.body);
-  let pro = [];
-  for (i of req.files) {
-    pro.push(i.path);
-  }
-  Exercise.create(
-    { ...req.body, exStaticImage: pro[0], exGifImage: pro[1] },
-    function (err) {
-      if (err) {
-        res.status(402).send("not valid");
-        console.log(err);
-      } else {
-        res.send("Exercise Added Successfully");
-      }
-    }
-  );
+router.post("/create", upload.single('exStaticImage'),  function (req, res) {
+  console.log("mmmmmmmmmmmmmmmm")
+  console.log(req.file)
+  console.log(req.body)
+  const exercise = new Exercise({
+    _id: new mongoose.Types.ObjectId(),
+    exerciseName: req.body.exerciseName,
+    exBodyPart: req.body.exBodyPart,
+    exTools: req.body.exTools,
+    exStaticImage: req.file.path,
+    // exGifImage: req.file.path,
+    exAdditionNotes: req.body.exAdditionNotes
+  });
+  exercise
+    .save()
+    .then(result => {
+      console.log(result);
+      res.status(201).json({
+        message: "Created exercise successfully",
+        createdFood: {
+          exerciseName: result.exerciseName,
+          exBodyPart: result.exBodyPart,
+          exTools: result.exTools,
+          // exStaticImage: req.file.path,
+          // exGifImage: req.file.path,
+          exAdditionNotes: result.exAdditionNotes,
+          _id: result._id,
+          request: {
+            type: 'GET',
+            url: "http://localhost:3000/exercises/" + result._id
+          }
+        }
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
+    });
 });
 
 // router.post('/create', function (req, res) {

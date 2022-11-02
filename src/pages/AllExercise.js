@@ -123,7 +123,7 @@ function AllExercise(props) {
                 </div>
 
                 <div className="sortExerciseChoices">
-                  {/* <input type="checkbox" name="bodyPart" id="chest" onChange={handleChange} value="leg"></input> */}
+                  <input type="checkbox" name="bodyPart" id="chest" onChange={handleChange} value="leg"></input>
                   <label>Leg</label>
                 </div>
                 {/* 
@@ -147,32 +147,32 @@ function AllExercise(props) {
               aria-labelledby="panelsStayOpen-headingTwo">
               <div className="accordion-body">
                 <div className="sortExerciseChoices">
-                  <input type="checkbox" name="noEquip" id="noEquip"></input>
+                  <input type="checkbox" id="noEquip" name="tools" onChange={handleChange} value=""></input>
                   <label>No Equipment</label>
                 </div>
 
                 <div className="sortExerciseChoices">
-                  <input type="checkbox" name="medicineBallEquip" id="medicineBallEquip"></input>
-                  <label>Medicine Ball</label>
+                  <input type="checkbox" id="medicineBallEquip" name="tools" onChange={handleChange} value="metal"></input>
+                  <label>Metal</label>
                 </div>
 
                 <div className="sortExerciseChoices">
-                  <input type="checkbox" name="dumbbellsEquip" id="dumbbellsEquip"></input>
+                  <input type="checkbox" id="dumbbellsEquip" name="tools" onChange={handleChange} value="dumbbells"></input>
                   <label>Dumbbells</label>
                 </div>
 
                 <div className="sortExerciseChoices">
-                  <input type="checkbox" name="barbellEquip" id="barbellEquip"></input>
+                  <input type="checkbox" id="barbellEquip" name="tools" onChange={handleChange} value="barbell"></input>
                   <label>Barbell</label>
                 </div>
 
                 <div className="sortExerciseChoices">
-                  <input type="checkbox" name="trxEquip" id="trxEquip"></input>
+                  <input type="checkbox" id="trxEquip" name="tools" onChange={handleChange} value="trx"></input>
                   <label>TRX</label>
                 </div>
 
                 <div className="sortExerciseChoices">
-                  <input type="checkbox" name="resisBandsEquip" id="resisBandsEquip"></input>
+                  <input type="checkbox" id="resisBandsEquip" name="tools" onChange={handleChange} value="resistence bands"></input>
                   <label>Resistence Bands</label>
                 </div>
 

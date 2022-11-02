@@ -54,10 +54,11 @@ function RepeatedTableRow({ data }) {
                             <p style={{ display: "none" }}>{exHistoryCounter++}</p>
 
                             <p style={{ color: "var(--prime)" }}>Exercise number. {exHistoryCounter} </p>
-                            <image src={item.exGifImage} style={{width: "80%"}} alt="exPhoto"></image>
+                            <image src={item.exGifImage} style={{width: "80%"}} alt="bbbbb"></image>
                             <p >Exercise Name: {item.exerciseName}</p>
                             <p >Exercise Body Part: {item.exBodyPart}</p>
                             <p >Exercise Tools: {item.exTools}</p>
+                            <img src= {`http://localhost:8000/${item.exStaticImage}`} style={{width: "80%"}} alt="image modal"/>
                             <p >Exercise Notes: {item.exAdditionNotes}</p>
                             </div> ) 
                     }

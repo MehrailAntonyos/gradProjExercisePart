@@ -101,7 +101,7 @@ function ExerciseCard({ data , user}) {
         <div className='cards'>
             <div className='contentTitle'>{data.exerciseName}</div>
             <div className='image-section'>
-                <img className='imgstatic' src={data.imgStatic} style={{ width: '100%', height: '100%' }} alt='exPhoto'></img>
+                <img src= {`http://localhost:8000/${data.exStaticImage}`} style={{ width: '100%', height: '100%' }} alt="image modal"/>
             </div>
             <div className='links'>
                 <button className='buttonApi my-5' onClick={() => { initModal(data) }}>See More</button>
@@ -119,7 +119,8 @@ function ExerciseCard({ data , user}) {
                     <Modal.Body style={{ background: "var(--onyx-darker)" , textAlign:"center"}}>
                         {console.log(data)}
                         <h3 style={{ color: "var(--prime)"}}>{data.exerciseName}</h3>
-                        <image src={data.imgStatic} style={{width: "80%"}} alt="exPhoto"></image>
+                        {console.log(`http://localhost:8000/${data.exStaticImage}`)}
+                        <img src= {`http://localhost:8000/${data.exStaticImage}`} style={{width: "80%"}} alt="image modal"/>
                         <p>{data.exBodyPart}</p>
                         <p>{data.exTools}</p>
                         <p>{data.exAdditionNotes}</p>

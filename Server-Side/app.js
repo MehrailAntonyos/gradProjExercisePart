@@ -14,6 +14,7 @@ const userRouter = require('./routes/userRoute');
 const exerciseRouter = require('./routes/exerciseRoute');
 const productsRouter = require('./routes/productRoute');
 const healthyFoodRouter = require('./routes/Health-System');
+const multer = require("multer");
 
 app.use(function (req, res, next) {
 
@@ -35,6 +36,7 @@ app.use('/api/v1/products', productsRouter);
 app.use('/api/v1/healthyfoods', healthyFoodRouter);
 app.get('/', (req, res) => res.send('Hello World!'))
 app.use("public", express.static("public"));
+app.use("/public/exercises", express.static("public/exercises"));
 
 
 
